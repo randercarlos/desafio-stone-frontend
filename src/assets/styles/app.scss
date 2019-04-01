@@ -1,0 +1,125 @@
+
+@import "roboto";
+@import "~ngc/src/assets/styles/app";
+
+/* Redefinindo tema do angular material */
+$primary: mat-palette($mat-light-green , 400);
+$accent: mat-palette($mat-amber, 200);
+$warn: mat-palette($mat-red);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+@include angular-material-theme($theme);
+
+.app-dark {
+  @include angular-material-theme($dark-theme);
+}
+
+@import "~ngc/src/assets/styles/scss/ngc-theme";
+@import "./spinner";
+
+/*  CSS customizado da aplicação */
+
+div.app-descricao {
+  img.app-icone {
+    display: block;
+    max-height: 50px;
+    padding-right: 8px;
+  }
+
+  div.app-nome {
+    padding-right: 8px;
+    font-size: initial;
+    line-height: initial;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    white-space: initial;
+    span.titulo {
+      font-weight: bold;
+    }
+
+    span.title {
+      font-size: 16px;
+    }
+
+    span.subtitle {
+      font-size: 12px;
+    }
+
+    @media (max-width: 400px) {
+      span.subtitulo {
+        font-size: small;
+      }
+    }
+    @media (max-width: 340px) {
+      span.subtitulo {
+        font-size: x-small;
+      }
+    }
+  }
+}
+.env {
+  width: 70%;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatar img {
+  bottom: 0;
+  max-width: 100%;
+}
+
+.ambiente-name {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+ngc-barra-botao .ngc-barra-botao-container {
+  padding-bottom: 5px;
+}
+
+.advanced-filter-label {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+// customização do snackbar (alerta de mensagem de sucesso)
+.ngc-snackbar-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+// link para fechar o snackbar de sucesso
+.ngc-snackbar-success .mat-simple-snackbar-action {
+  color: #155724;
+}
+// Fim - customização do snackbar (alerta de mensagem de sucesso)
+
+// customização do snackbar (alerta de mensagem de error)
+.ngc-snackbar-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+// link para fechar o snackbar de sucesso
+.ngc-snackbar-error .mat-simple-snackbar-action {
+  color: #721c24;
+}
+// Fim - customização do snackbar (alerta de mensagem de error)
+
+.input-error{
+  background-color: red;
+}

@@ -1,0 +1,25 @@
+<div class="app" [dir]="options.dir" [ngClass]="{'app-dark': options.dark, 'boxed': options.boxed, 'collapsed-sidebar': options.collapsed, 'compact-sidebar': options.compact, 'side-panel-opened': options.sidePanelOpened, 'side-panel-closed': !options.sidePanelOpened }">
+    <ngc-header (changeTheme)="changeTheme($event)" (navToggle)="sidenav.toggleSidenav()">
+      <div fxFlex.lt-sm fxLayout="row" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="center center" class="app-descricao">
+        <img class="app-icone" src="assets/img/logo_stone_pagamento.png" />
+        <div fxLayout="column" class="app-nome">
+          <span fxFlex class="title" style="color: white">{{ title }}</span>
+          <span fxFlex class="subtitle" style="color: white">{{ subtitle }}</span>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxLayout="row" fxLayoutAlign="center center" fxHide.lt-md="true">
+          <span class="ambiente-name" style="color: white">{{ ambiente }}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div class="avatar">
+            <img *ngIf="!currentUser.pessoa.im_foto" fxHide.lt-sm="true" src="/assets/img/img-user.png" />
+            <img *ngIf="currentUser.pessoa.im_foto" fxHide.lt-sm="true" [src]="'data:image/jpg;base64,'+ currentUser.pessoa.im_foto" style="height:50px;width:50px" />
+          </div>
+        </div>
+      </div>
+    </ngc-header>
+    <ngc-loader cor="primary" modo="indeterminate"></ngc-loader>
+    <ngc-sidenav #sidenav [options]="options" [elements]="menuElements"></ngc-sidenav>
+  </div>
+  <div style="text-align: center;font: 12px Arial;">Desenvolvido por <b>Rander Carlos.</b> Copyright &copy; 2019. </div>

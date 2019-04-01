@@ -1,0 +1,45 @@
+<ngc-cartao titulo="Pesquisar funcionários" subtitulo="Preencha os campos para filtrar a listagem:" >
+
+  <ngc-form #form [elements]="camposFormulario">
+
+    <div fxLayoutAlign="center center">
+      <button #advancedFilterButton mat-button type="button" (click)="toggleFiltro()">
+        <span class="advanced-filter-label">
+          Pesquisa avançada
+        </span>
+        <mat-icon *ngIf="!filtroAberto">arrow_drop_down</mat-icon>
+        <mat-icon *ngIf="filtroAberto">arrow_drop_up</mat-icon>
+      </button>
+    </div>
+
+    <div fxLayoutAlign="end center">
+        <ngc-barra-botao>
+          <ngc-botao nome="limpar" label="Limpar Filtros" icone="" estilo="relevado" (onClique)="limparCampos()"></ngc-botao>
+          <ngc-botao label="Pesquisar" icone="search" tipo="button" tipo="relevado" cor="primary"
+            (onClique)="getResult()"></ngc-botao>
+        </ngc-barra-botao>
+    </div>
+
+  </ngc-form>
+</ngc-cartao>
+
+<ngc-cartao>
+  <ngc-barra-botao alinhar="esquerda">
+      <ngc-botao label="Adicionar" icone="add" tipo="button" (onClique)="novoFuncionario()"
+        cor="primary"></ngc-botao>
+      <ngc-botao tooltip="Atualizar tabela" icone="refresh" tipo="button" estilo="icone"
+        (onClique)="limparCampos()"></ngc-botao>
+  </ngc-barra-botao>
+
+  <ngc-tabela
+    #tabela
+    [filtro]="form"
+    [dto]="dto"
+    [requisicao]="requisicao"
+    [colunas]="colunas"
+    [acoes]="acoes"
+    [paginacao]="paginacao"
+    [selecionavel]="false">
+  </ngc-tabela>
+
+</ngc-cartao>

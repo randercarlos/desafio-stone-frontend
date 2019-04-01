@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt_BR">
+<head>
+  <meta charset="utf-8">
+  <title>Sistema Pessoal </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+	  window.addEventListener("message", function (event) {
+	  	if (Array.isArray(event.data) && event.data[0].channel) {
+		    var message = JSON.stringify(event.data[0]);
+
+        if (event.data[0].channel == 'currentUser') {
+          localStorage.setItem(event.data[0].channel, event.data[0].message)
+        }
+
+        console.log('[Pessoal] ', event.data[0].channel);
+      }
+	  }, false);
+  </script>
+</body>
+</html>

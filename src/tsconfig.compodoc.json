@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "src/ngc/ngc-layout/ngc-stepper/animations/fade/fade.directive.ts",
+    "src/ngc/ngc-form/ngc-form-elements/abstract-control-value-accesor.ts",
+    "src/ngc/ngc-layout/ngc-stepper/behaviors/disabled.mixin.ts",
+    "src/ngc/ngc-translate/ngc-translate.service.ts",
+    "src/ngc/ngc-layout/ngc-stepper/truncate/truncate.pipe.ts",
+    "src/ngc/ngc-translate/ngc-missing-translation-handler.ts"
+  ]
+}

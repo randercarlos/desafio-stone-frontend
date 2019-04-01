@@ -1,0 +1,26 @@
+<ngc-cartao>
+
+    <h2 style="text-align-last: center;">
+      {{ this.acao === 0 ? 'Cadastrar' : '' }} {{ this.acao === 1 ? 'Editar' : '' }}
+      {{ this.acao === 2 ? 'Visualizar' : '' }} Funcionário
+    </h2>
+
+
+    <p *ngIf="this.acao === 0 || this.acao === 1">
+      Preencha os dados para {{ this.acao === 0 ? 'Cadastrar' : '' }} {{ this.acao === 1 ? 'Editar' : '' }} um funcionário
+    </p>
+
+    <ngc-form #form [elements]="formData" (onSubmit)="salvar()">
+
+      <ngc-cartao-acoes>
+        <ngc-barra-botao>
+          <ngc-botao tipo="botao" (onClique)="irParaTelaDeListagem()" icone="arrow_back_ios" [cor]="'default'">Voltar</ngc-botao>
+          <ngc-botao *ngIf="acao !== 2" tipo="submit" icone="save" classe="mat-primary"
+            [desabilitado]="!myForm.valid">
+            Salvar
+          </ngc-botao>
+        </ngc-barra-botao>
+      </ngc-cartao-acoes>
+    </ngc-form>
+
+</ngc-cartao>
